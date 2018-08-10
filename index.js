@@ -1,6 +1,7 @@
 import { app, server } from './server/server';
+import logger from './server/utils/logger';
 
-app.listen({ port: 3000 }, () => console.log(`🚀 Server ready at http://localhost:3000${server.graphqlPath}`));
+app.listen({ port: 3000 }, () => logger.log(`🚀 Server ready at http://localhost:3000${server.graphqlPath}`));
 
 
 // var Crawler = require("crawler");
