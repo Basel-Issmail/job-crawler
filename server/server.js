@@ -1,5 +1,6 @@
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
+import { stackoverflowDefs, stackoverflowResolvers } from './app/stackoverflow/stackoverflow.graphql';
 
 
 const app = express();
@@ -8,8 +9,8 @@ const app = express();
 
 
 const server = new ApolloServer({
-  typeDefs: [],
-  resolvers: [],
+  typeDefs: [stackoverflowDefs],
+  resolvers: [stackoverflowResolvers],
   context: ({ req }) => ({
     req,
   }),
