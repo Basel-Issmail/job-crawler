@@ -10,7 +10,7 @@ const stackoverflowDefs = gql`
   }
 
   type Query {
-    allJobs: Job
+    allJobs: [Job]
   }
 
 `;

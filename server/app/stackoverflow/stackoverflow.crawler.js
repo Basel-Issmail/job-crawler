@@ -10,7 +10,12 @@ const getJobs = async () => new Promise((resolve, reject) => {
         reject(error);
       } else {
         const $ = res.$;
-        resolve({ description: $('span.fav-toggle').html() });
+        // resolve({ description: $('span.fav-toggle').html() });
+        const result = [];
+        $('span.fav-toggle').each(function () {
+          result.push({ description: $(this).attr('data-ga-label') });
+        });
+        resolve(result);
       }
     },
   }]);
