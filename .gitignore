@@ -1,0 +1,8 @@
+# Visual Code directory
+.vscode/
+
+# Dependency directories
+node_modules/
+
+# production env Variables
+server/config/production.js
