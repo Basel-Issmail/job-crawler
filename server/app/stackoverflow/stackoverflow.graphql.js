@@ -8,12 +8,7 @@ const stackoverflowDefs = gql`
     allStackoverflowJobs: [Job]
   }
 
-  input SearchInput {
-    keyWord: String!
-    pageNumber: Int
-  } 
-
-  type Mutation {
+  extend type Mutation {
     searchStackoverflowJobs(input: SearchInput): [Job]
   }
 `;

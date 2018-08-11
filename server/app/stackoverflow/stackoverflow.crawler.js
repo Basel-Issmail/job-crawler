@@ -39,7 +39,7 @@ const getJobs = async () => new Promise((resolve, reject) => {
 
 const searchJobs = async input => new Promise((resolve, reject) => {
   crawler.queue([{
-    uri: `https://stackoverflow.com/jobs?sort=i&q=${input.keyWord}&pg=${input.pageNumber}`,
+    uri: `https://stackoverflow.com/jobs?sort=i&q=${input.keyWord} ${input.location}&pg=${input.pageNumber}`,
 
     // The global callback won't be called
     callback(error, res) {
