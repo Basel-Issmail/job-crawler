@@ -12,8 +12,20 @@ const getJobs = async () => new Promise((resolve, reject) => {
         const $ = res.$;
         // resolve({ description: $('span.fav-toggle').html() });
         const result = [];
-        $('h2.job-details__spaced a').each(function () {
-          result.push({ description: $(this).attr('title') });
+        $('.-item.-job').each(function getDetails() {
+          result.push(
+            {
+              title: $(this).find('h2.job-details__spaced  a').attr('title'),
+              link: $(this).find('h2.job-details__spaced  a').attr('href'),
+              company: $(this).find('div.fc-black-700.fs-body2').clone().find('span')
+                .remove()
+                .end()
+                .text()
+                .replace(/\n/g, '')
+                .replace(/\r/g, '')
+                .trim(),
+            },
+          );
         });
         resolve(result);
       }

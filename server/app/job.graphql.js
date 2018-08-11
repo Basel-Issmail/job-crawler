@@ -6,6 +6,8 @@ const Job = gql`
  type Job {
     description: String
     title: String
+    link: String
+    company: String
   }
 
 `;
