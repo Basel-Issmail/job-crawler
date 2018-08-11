@@ -1,16 +1,11 @@
 import { gql } from 'apollo-server-express';
+import Job from '../job.graphql';
 import { getJobs } from './stackoverflow.crawler';
-
-console.log(getJobs);
 
 // Construct a schema, using GraphQL schema language
 const stackoverflowDefs = gql`
- type Job {
-    description: String
-  }
-
-  type Query {
-    allJobs: [Job]
+   type Query {
+    allStackoverflowJobs: [Job]
   }
 
 `;
@@ -18,8 +13,8 @@ const stackoverflowDefs = gql`
 // Provide resolver functions for your schema fields
 const stackoverflowResolvers = {
   Query: {
-    allJobs: () => getJobs(),
+    allStackoverflowJobs: () => getJobs(),
   },
 };
 
-export { stackoverflowDefs, stackoverflowResolvers };
+export { stackoverflowDefs, Job, stackoverflowResolvers };

@@ -1,4 +1,4 @@
-import crawler from '../../crawler';
+import crawler from '../crawler';
 
 const getJobs = async () => new Promise((resolve, reject) => {
   crawler.queue([{
@@ -12,8 +12,8 @@ const getJobs = async () => new Promise((resolve, reject) => {
         const $ = res.$;
         // resolve({ description: $('span.fav-toggle').html() });
         const result = [];
-        $('span.fav-toggle').each(function () {
-          result.push({ description: $(this).attr('data-ga-label') });
+        $('h2.job-details__spaced a').each(function () {
+          result.push({ description: $(this).attr('title') });
         });
         resolve(result);
       }
